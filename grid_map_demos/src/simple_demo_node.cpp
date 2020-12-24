@@ -16,7 +16,7 @@ int main(int argc, char ** argv)
   // Create grid map.
   grid_map::GridMap map({"elevation"});
   map.setFrameId("map");
-  map.setGeometry(grid_map::Length(1.2, 2.0), 0.03);
+  map.setGeometry(grid_map::Length(10.0, 10.0), 0.01);
   RCLCPP_INFO(
     node.get_logger(),
     "Created map with size %f x %f m (%i x %i cells).",
@@ -24,7 +24,7 @@ int main(int argc, char ** argv)
     map.getSize()(0), map.getSize()(1));
 
   // Work with grid map in a loop.
-  rclcpp::Rate rate(30.0);
+  rclcpp::Rate rate(50.0);
   rclcpp::Clock clock;
   while (rclcpp::ok()) {
     // Add data to grid map.
